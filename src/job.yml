@@ -8,8 +8,6 @@ inputs:
   training_data: 
     type: uri_folder 
     path: experimentation/data
-    dataset_mounts:
-      - dataset: training_data  # This is the name of the dataset as used in the command
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: azureml:dreams-aml-compute-cluster
