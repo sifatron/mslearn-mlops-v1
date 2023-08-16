@@ -7,7 +7,7 @@ jobs:
   train:
     runs-on: ubuntu-latest
     steps:
-    - name: mslearn-mlops-v1
+    - name: Check out repo
       uses: actions/checkout@main
     - name: Install az ml extension
       run: az extension add -n ml -y
