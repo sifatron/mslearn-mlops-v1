@@ -7,7 +7,7 @@ jobs:
   train:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repo
+    - name: mslearn-mlops-v1
       uses: actions/checkout@main
     - name: Install az ml extension
       run: az extension add -n ml -y
@@ -15,5 +15,7 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Trigger Azure Machine Learning job
+      run: az ml job create --file src/job.yml
 
 
