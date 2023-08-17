@@ -6,8 +6,9 @@ on:
       - main
 
 jobs:
-  experiment:
+  experimentation:
     name: Experiment Job
+    environment: experiment
     runs-on: ubuntu-latest
     steps:
     - name: Check out repo
@@ -23,7 +24,8 @@ jobs:
 
   production:
     name: Production Job
-    needs: experiment
+    environment: production
+    needs: experimentation
     runs-on: ubuntu-latest
     steps:
     - name: Check out repo
@@ -35,4 +37,4 @@ jobs:
       with:
         creds: ${{secrets.PROD_AZURE_CREDENTIALS}}
     - name: Trigger Azure Machine Learning job
-      run: az ml job create --file src/production.yml --resource-group TestResourceGroup --workspace-name dreams-aml --stream
+      run: az ml job create --stream --file src/production.yml --resource-group TestResourceGroup --workspace-name dreams-aml
