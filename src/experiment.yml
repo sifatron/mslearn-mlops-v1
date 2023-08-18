@@ -11,5 +11,5 @@ inputs:
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: azureml:dreams-aml-compute-cluster
-experiment_name: mslearn-mlops-v1
+experiment_name: mslearn-mlops-v1-experiment
 description: Run an MLOPS experiment job
