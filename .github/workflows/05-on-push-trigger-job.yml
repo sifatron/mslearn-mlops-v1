@@ -19,7 +19,7 @@ jobs:
       with:
         creds: ${{secrets.DEV_AZURE_CREDENTIALS}}
     - name: Trigger Azure Machine Learning job
-      run: az ml job create --file src/experiment.yml --resource-group TestResourceGroup --workspace-name dreams-aml -s
+      run: az ml job create --file src/experiment.yml --resource-group TestResourceGroup --workspace-name dreams-aml
 
   production:
     name: Production Job
