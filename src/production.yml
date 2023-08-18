@@ -6,7 +6,9 @@ inputs:
   training_data: 
     type: uri_folder 
     path: azureml://subscriptions/d15e0e23-22f1-4cca-8799-8b063bf038c6/resourcegroups/TestResourceGroup/workspaces/dreams-aml/datastores/workspaceblobstore/paths/LocalUpload/386681db2f7cd59e8c96f5ee80b212db/data/
-  reg_rate: 0.01
+  reg_rate:
+    type: number
+    value: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: azureml:dreams-aml-compute-cluster
 experiment_name: mslearn-mlops-v1-prod
