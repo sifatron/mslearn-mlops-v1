@@ -1,0 +1,28 @@
+# .github/workflows/create-endpoint.yml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
+name: mslearn-mlops-v1-endpoint
+auth_mode: key
+
+#$schema: https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#
+#contentVersion: 1.0.0.0
+#name: Create Endpoint Workflow
+#
+#on:
+#  workflow_dispatch:
+#
+#jobs:
+#  create_endpoint:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Checkout code
+#      uses: actions/checkout@v2
+#    - name: Use Python version 3.8
+#      uses: actions/setup-python@v2
+#      with:
+#        python-version: '3.8'
+#    - name: Install Azure ML SDK
+#      run: |
+#        python -m pip install azureml-sdk
+#    - name: Create Endpoint
+#      run: |
+#        az ml online-endpoint create --name mslearn-mlops-v1-endpoint -f 06-create-endpoint.yml --resource-group TestResourceGroup --workspace-name dreams-aml
