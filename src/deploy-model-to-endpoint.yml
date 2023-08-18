@@ -2,9 +2,9 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: mslearn-mlops-v1-deployed
 endpoint_name: mslearn-mlops-v1-endpoint
-model:
-  name: mslearn-mlops-v1-prod:1
-  path: azureml://locations/eastus/workspaces/804c5e67-ecee-4f1c-a692-c47bc3ed8e10/models/mslearn-mlops-v1-prod/versions/1
+model: azureml:mslearn-mlops-v1-prod@latest
+#  name: mslearn-mlops-v1-prod:1
+#  path: azureml://locations/eastus/workspaces/804c5e67-ecee-4f1c-a692-c47bc3ed8e10/models/mslearn-mlops-v1-prod/versions/1
 #code_configuration:
 #  code: ../../model-1/onlinescoring/
 #  scoring_script: score.py
