@@ -37,4 +37,4 @@ instance_count: 1
 #        python -m pip install azureml-sdk
 #    - name: Deploy Model to Endpoint
 #      run: |
-#        az ml online-deployment create --name mslearn-mlops-v1-deployed --endpoint-name mslearn-mlops-v1-endpoint --file 07-deploy-model-to-endpoint.yml --resource-group TestResourceGroup --workspace-name dreams-aml
+#        az ml online-deployment create --name mslearn-mlops-v1-deployed --endpoint-name mslearn-mlops-v1-endpoint --file deploy-model-to-endpoint.yml --resource-group TestResourceGroup --workspace-name dreams-aml

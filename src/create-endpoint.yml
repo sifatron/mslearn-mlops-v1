@@ -25,4 +25,4 @@ auth_mode: key
 #        python -m pip install azureml-sdk
 #    - name: Create Endpoint
 #      run: |
-#        az ml online-endpoint create --name mslearn-mlops-v1-endpoint -f 06-create-endpoint.yml --resource-group TestResourceGroup --workspace-name dreams-aml
+#        az ml online-endpoint create --name mslearn-mlops-v1-endpoint -f create-endpoint.yml --resource-group TestResourceGroup --workspace-name dreams-aml
