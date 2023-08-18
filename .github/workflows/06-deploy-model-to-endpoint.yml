@@ -14,12 +14,14 @@ jobs:
     - name: Azure login
       uses: azure/login@v1
       with:
-        creds: ${{secrets.PROD_AZURE_CREDENTIALS}}
+        creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Create Endpoint
       run: |
         az ml online-endpoint create --name mslearn-mlops-v1-endpoint -f src/create-endpoint.yml --resource-group TestResourceGroup --workspace-name dreams-aml
+
   deploy_to_endpoint:
       runs-on: ubuntu-latest
+      needs: create-endpoint
       steps:
       - name: Check out repo
         uses: actions/checkout@main
@@ -28,7 +30,7 @@ jobs:
       - name: Azure login
         uses: azure/login@v1
         with:
-          creds: ${{secrets.PROD_AZURE_CREDENTIALS}}
+          creds: ${{secrets.AZURE_CREDENTIALS}}
       - name: Deploy Model to Endpoint
         run: |
-          az ml online-deployment create --name mslearn-mlops-v1-deployed --endpoint-name mslearn-mlops-v1-endpoint --file src/deploy-model-to-endpoint.yml --resource-group TestResourceGroup --workspace-name dreams-aml
+          az ml online-deployment create --name mslearn-mlops-v1-deployed --endpoint mslearn-mlops-v1-endpoint -f src/deploy-model-to-endpoint.yml --resource-group TestResourceGroup --workspace-name dreams-aml --all-traffic
