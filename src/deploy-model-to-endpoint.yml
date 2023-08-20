@@ -2,39 +2,10 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: mslearn-mlops-v1-deployed
 endpoint_name: mslearn-mlops-v1-endpoint
-model: azureml:mslearn-mlops-v1-prod@latest
-#  name: mslearn-mlops-v1-prod:1
-#  path: azureml://locations/eastus/workspaces/804c5e67-ecee-4f1c-a692-c47bc3ed8e10/models/mslearn-mlops-v1-prod/versions/1
-#code_configuration:
-#  code: ../../model-1/onlinescoring/
-#  scoring_script: score.py
-#environment:
-##  conda_file: ../../model-1/environment/conda.yaml
-##  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
-environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
+model:
+  name: mslearn-mlops-v1-prod
+  version: 1
+  path: azureml:mslearn-mlops-v1-prod:1
+  type: mlflow_model
 instance_type: Standard_DS3_v2
 instance_count: 1
-
-#$schema: https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#
-#contentVersion: 1.0.0.0
-#name: Deploy Model to Endpoint Workflow
-#
-#on:
-#  workflow_dispatch:
-#
-#jobs:
-#  deploy_to_endpoint:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - name: Checkout code
-#      uses: actions/checkout@v2
-#    - name: Use Python version 3.8
-#      uses: actions/setup-python@v2
-#      with:
-#        python-version: '3.8'
-#    - name: Install Azure ML SDK
-#      run: |
-#        python -m pip install azureml-sdk
-#    - name: Deploy Model to Endpoint
-#      run: |
-#        az ml online-deployment create --name mslearn-mlops-v1-deployed --endpoint-name mslearn-mlops-v1-endpoint --file deploy-model-to-endpoint.yml --resource-group TestResourceGroup --workspace-name dreams-aml
