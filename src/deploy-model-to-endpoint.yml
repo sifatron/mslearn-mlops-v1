@@ -2,10 +2,9 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: mslearn-mlops-v1-deployed
 endpoint_name: mslearn-mlops-v1-endpoint
-model:
-  name: mslearn-mlops-v1-prod
-  version: 1
-  path: azureml:mslearn-mlops-v1-prod:1
-  type: mlflow_model
+model: azureml:mslearn-mlops-v1-prod@latest
+environment:
+  image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+  conda_file: mslearn-mlops-v1-prod/conda.yaml
 instance_type: Standard_DS3_v2
 instance_count: 1
