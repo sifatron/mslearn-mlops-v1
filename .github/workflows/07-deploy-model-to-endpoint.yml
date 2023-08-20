@@ -1,4 +1,4 @@
-name: Create Endpoint and Deploy Model to Endpoint Workflow
+name: Deploy Model to Endpoint Workflow
 
 on:
   workflow_dispatch:
