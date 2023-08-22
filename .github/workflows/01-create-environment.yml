@@ -17,4 +17,4 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Create Environment
       run: |
-        az ml environment create --name mlflow-env --file src/basic-env.yml --resource-group TestResourceGroup --workspace-name dreams-aml
+        az ml environment create --file src/basic-env.yml --resource-group TestResourceGroup --workspace-name dreams-aml
