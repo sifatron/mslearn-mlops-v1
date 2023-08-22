@@ -1,0 +1,17 @@
+name: mlflow-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7.16
+  - pip<=20.2.4
+  - pandas
+  - numpy
+  - matplotlib
+  - pip:
+    - azureml-defaults
+    - azureml-core
+    - azureml-mlflow
+    - mlflow
+    - cloudpickle==2.2.1
+    - psutil==5.8.0
+    - scikit-learn==0.24.1

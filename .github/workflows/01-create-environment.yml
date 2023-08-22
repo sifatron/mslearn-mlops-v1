@@ -1,0 +1,20 @@
+name: Create Environment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create_endpoint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Install az ml extension
+      run: az extension add -n ml -y
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Create Environment
+      run: |
+        az ml environment create --name mlflow-env --file src/basic-env.yml --resource-group TestResourceGroup --workspace-name dreams-aml
